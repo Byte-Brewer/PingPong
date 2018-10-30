@@ -15,6 +15,7 @@
 		782C9C87218317AB006ADAEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C9C85218317AB006ADAEA /* Main.storyboard */; };
 		782C9C89218317AC006ADAEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782C9C88218317AC006ADAEA /* Assets.xcassets */; };
 		782C9C8C218317AC006ADAEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C9C8A218317AC006ADAEA /* LaunchScreen.storyboard */; };
+		782C9D062187B4EE006ADAEA /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C9D052187B4ED006ADAEA /* CameraController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		782C9C88218317AC006ADAEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		782C9C8B218317AC006ADAEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		782C9C8D218317AC006ADAEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		782C9D052187B4ED006ADAEA /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +62,26 @@
 		782C9C7A218317AB006ADAEA /* Pong */ = {
 			isa = PBXGroup;
 			children = (
-				782C9C7B218317AB006ADAEA /* AppDelegate.swift */,
-				782C9C7D218317AB006ADAEA /* GameScene.sks */,
-				782C9C7F218317AB006ADAEA /* Actions.sks */,
 				782C9C81218317AB006ADAEA /* GameScene.swift */,
 				782C9C83218317AB006ADAEA /* GameViewController.swift */,
+				782C9D052187B4ED006ADAEA /* CameraController.swift */,
+				782C9C7D218317AB006ADAEA /* GameScene.sks */,
+				782C9C7F218317AB006ADAEA /* Actions.sks */,
 				782C9C85218317AB006ADAEA /* Main.storyboard */,
+				782C9D07218889B4006ADAEA /* Supporting Files */,
+			);
+			path = Pong;
+			sourceTree = "<group>";
+		};
+		782C9D07218889B4006ADAEA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				782C9C7B218317AB006ADAEA /* AppDelegate.swift */,
 				782C9C88218317AC006ADAEA /* Assets.xcassets */,
 				782C9C8A218317AC006ADAEA /* LaunchScreen.storyboard */,
 				782C9C8D218317AC006ADAEA /* Info.plist */,
 			);
-			path = Pong;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +159,7 @@
 			files = (
 				782C9C82218317AB006ADAEA /* GameScene.swift in Sources */,
 				782C9C84218317AB006ADAEA /* GameViewController.swift in Sources */,
+				782C9D062187B4EE006ADAEA /* CameraController.swift in Sources */,
 				782C9C7C218317AB006ADAEA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,7 +308,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CSCETSS9EC;
-				INFOPLIST_FILE = Pong/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pong/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +326,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CSCETSS9EC;
-				INFOPLIST_FILE = Pong/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pong/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

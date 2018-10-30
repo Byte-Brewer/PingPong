@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,118 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Pong" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JL7-Jh-wFM" userLabel="cameraView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
+                                <color key="backgroundColor" red="0.0" green="0.48482114079999999" blue="0.75068986419999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDh-2f-BDg" userLabel="gameSet" customClass="SKView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="547"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ziy-nE-hHr" userLabel="buttonView">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Umn-wM-V7F">
+                                        <rect key="frame" x="17.5" y="30" width="340" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ym-KO-FyE">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                                <color key="backgroundColor" red="0.59071433449999999" green="1" blue="0.53733645129999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="2DP-vW-C0y"/>
+                                                    <constraint firstAttribute="width" constant="120" id="phs-L2-hDI"/>
+                                                </constraints>
+                                                <state key="normal" title="Open Camera">
+                                                    <color key="titleColor" red="1" green="0.23594154780000001" blue="0.1305308188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="openCamera:" destination="BV1-FR-VrT" eventType="touchUpInside" id="c2w-Ar-vyp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piS-ow-oLs">
+                                                <rect key="frame" x="150" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" red="1" green="0.1810200455" blue="0.13987973109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="54B-Yy-mUJ"/>
+                                                    <constraint firstAttribute="width" constant="40" id="vaU-EL-J6f"/>
+                                                </constraints>
+                                                <state key="normal" title="Rec">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="rec:" destination="BV1-FR-VrT" eventType="touchUpInside" id="S9D-eK-szy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpD-g0-JWv">
+                                                <rect key="frame" x="220" y="0.0" width="120" height="40"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="7Rk-cr-C9h"/>
+                                                    <constraint firstAttribute="height" constant="40" id="PJH-dT-xgr"/>
+                                                </constraints>
+                                                <state key="normal" title="Stop">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="stop:" destination="BV1-FR-VrT" eventType="touchUpInside" id="rLV-CU-07C"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="6CE-f0-jY9"/>
+                                    <constraint firstItem="Umn-wM-V7F" firstAttribute="centerY" secondItem="Ziy-nE-hHr" secondAttribute="centerY" id="G4c-73-nUd"/>
+                                    <constraint firstItem="Umn-wM-V7F" firstAttribute="centerX" secondItem="Ziy-nE-hHr" secondAttribute="centerX" id="NCV-JO-1YT"/>
+                                    <constraint firstAttribute="height" constant="100" id="V7K-6r-xgx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FDh-2f-BDg" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="5zm-92-ulc"/>
+                            <constraint firstItem="JL7-Jh-wFM" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="9ie-HJ-Y2H"/>
+                            <constraint firstItem="Ziy-nE-hHr" firstAttribute="bottom" secondItem="4qk-I5-YsI" secondAttribute="bottom" id="L37-Dw-pXt"/>
+                            <constraint firstItem="FDh-2f-BDg" firstAttribute="trailing" secondItem="4qk-I5-YsI" secondAttribute="trailing" id="LZX-4z-Jjs"/>
+                            <constraint firstItem="Ziy-nE-hHr" firstAttribute="trailing" secondItem="4qk-I5-YsI" secondAttribute="trailing" id="MRo-8q-8mA"/>
+                            <constraint firstItem="Ziy-nE-hHr" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="RgD-tQ-6Fv"/>
+                            <constraint firstItem="JL7-Jh-wFM" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="Rvl-aF-de1"/>
+                            <constraint firstItem="Ziy-nE-hHr" firstAttribute="top" secondItem="JL7-Jh-wFM" secondAttribute="bottom" id="SJ7-tM-6OF"/>
+                            <constraint firstItem="JL7-Jh-wFM" firstAttribute="trailing" secondItem="4qk-I5-YsI" secondAttribute="trailing" id="bap-XZ-cIN"/>
+                            <constraint firstItem="Ziy-nE-hHr" firstAttribute="top" secondItem="FDh-2f-BDg" secondAttribute="bottom" id="cbn-h4-KVZ"/>
+                            <constraint firstItem="FDh-2f-BDg" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="iey-ip-jvo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <connections>
+                        <outlet property="cameraView" destination="JL7-Jh-wFM" id="7iI-b4-7Aa"/>
+                        <outlet property="gameView" destination="FDh-2f-BDg" id="Vst-3k-zqY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="56.799999999999997" y="26.53673163418291"/>
         </scene>
     </scenes>
 </document>
