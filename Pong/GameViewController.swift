@@ -53,8 +53,9 @@ class GameViewController: UIViewController {
         if !recorder.isRecording {
             recorder.startRecording { (error) in
                 guard error != nil else { return }
+                self.alert(message: error.debugDescription)
             }
-        }
+        } else { alert(message: "ScreenRecord is active") }
     }
     
     @IBAction func stop(_ sender: UIButton) {
@@ -67,6 +68,7 @@ class GameViewController: UIViewController {
                 
                 if let error = error  {
                     print("Error", error.localizedDescription)
+                    self.alert(message: error.localizedDescription)
                 }
             }
         }
@@ -89,9 +91,17 @@ class GameViewController: UIViewController {
         cameraController.prepare {(error) in
             if let error = error {
                 print(error)
+                self.alert(message: error.localizedDescription)
             }
             try? self.cameraController.displayPreview(on: self.cameraView)
         }
+    }
+    
+    func alert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
+        let actionOk = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(actionOk)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
